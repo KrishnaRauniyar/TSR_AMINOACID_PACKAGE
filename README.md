@@ -1,6 +1,6 @@
-# TSR Nucleotide Package
+# TSR AminoAcid Package
 
-**TSR Nucleotide Package** is a Python tool for retrieving Protein Data Bank (PDB) files and generating key/triplet files for Nucleotide-Protein analysis.
+**TSR AminoAcid Package** is a Python tool for retrieving Protein Data Bank (PDB) files and generating key/triplet files for Amino Acid analysis.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -15,11 +15,11 @@
 
 ### Cloning the Repository
 
-To get started with the `nucleotide_tsr_package`, clone the repository from GitHub:
+To get started with the `aminoacid_tsr_package`, clone the repository from GitHub:
 
 ```bash
-git clone https://github.com/KrishnaRauniyar/TSR_NUCLEOTIDE_PACKAGE.git
-cd TSR_NUCLEOTIDE_PACKAGE
+git clone https://github.com/KrishnaRauniyar/TSR_AMINOACID_PACKAGE.git
+cd TSR_AMINOACID_PACKAGE
 ```
 
 ### Installing the Package
@@ -40,7 +40,7 @@ pip install .
 3. Alternatively, you can install the package from the built wheel:
 
 ```bash
-pip install dist/nucleotide_tsr_package-0.1.0-py3-none-any.whl
+pip install dist/aminoacid_tsr_package-0.1.0-py3-none-any.whl
 ```
 
 4. Install the necessary dependencies:
@@ -54,7 +54,7 @@ pip install -r requirements.txt
 To retrieve PDB files using the `retrieve_pdb_files` function:
 
 ```python
-from nucleotide_tsr_package.tsr.retrieve_pdb_files import retrieve_pdb_files
+from aminoacid_tsr_package.tsr.retrieve_pdb_files import retrieve_pdb_files
 
 # Retrieve PDB files for the specified PDB IDs
 pdb_ids = ["1GTA", "1GTB", "1lbe"]
@@ -62,7 +62,7 @@ retrieve_pdb_files(pdb_ids, 'Dataset/')
 ```
 Or you can use a CSV file to download the PDB files:
 ```python
-from nucleotide_tsr_package.tsr.retrieve_pdb_files import retrieve_pdb_files
+from aminoacid_tsr_package.tsr.retrieve_pdb_files import retrieve_pdb_files
 
 data_dir = "Dataset/"
 csv_file = "sample_details.csv"
@@ -76,7 +76,7 @@ Protein IDs are not case-sensitive, so you may use lowercase and uppercase lette
 To generate keys or triplet files for the proteins:
 
 ```python
-from nucleotide_tsr_package.tsr.generate_keys_and_triplets import NucleotideTSR
+from aminoacid_tsr_package.tsr.generate_keys_and_triplets import AminoAcidProteinTSR
 
 # Define the directory where PDB files are stored
 data_dir = "Dataset/"
@@ -87,7 +87,7 @@ output_option = "keys"  # choose 'keys', 'triplets', or 'both'. If none, the fun
 mirror_image: "True" # Optional argument. Set to True if you want the TSR to address for the mirror image triangles.
 
 # Process protein data to generate key files
-NucleotideTSR(data_dir, input_files, chain=chain, output_option=output_option, mirror_image=mirror_image)
+AminoAcidProteinTSR(data_dir, input_files, chain=chain, output_option=output_option mirror_image=mirror_image)
 ```
 Protein's chains are case-sensitive since there are chains with both lower and uppercase letters.
 
@@ -103,7 +103,7 @@ You can pass a CSV file as input to process multiple PDB files with chain inform
 To process the CSV file:
 
 ```python
-from nucleotide_tsr_package.tsr.generate_keys_and_triplets import NucleotideTSR
+from aminoacid_tsr_package.tsr.generate_keys_and_triplets import AminoAcidProteinTSR
 
 # Define the directory and CSV file path
 data_dir = "Dataset/"
@@ -111,7 +111,7 @@ csv_file = "sample_details.csv"
 mirror_image: "True" # Optional argument. Set to True if you want the TSR to address for the mirror image triangles.
 
 # Process the CSV input
-NucleotideTSR(data_dir, csv_file, output_option="keys", mirror_image=mirror_image)
+AminoAcidProteinTSR(data_dir, csv_file, output_option="keys", mirror_image=mirror_image)
 ```
 
 ## Arguments
@@ -125,8 +125,8 @@ NucleotideTSR(data_dir, csv_file, output_option="keys", mirror_image=mirror_imag
 ### Example 1: Retrieving PDB Files and Generating Keys
 
 ```python
-from nucleotide_tsr_package.tsr.retrieve_pdb_files import retrieve_pdb_files
-from nucleotide_tsr_package.tsr.generate_keys_and_triplets import NucleotideTSR
+from aminoacid_tsr_package.tsr.retrieve_pdb_files import retrieve_pdb_files
+from aminoacid_tsr_package.tsr.generate_keys_and_triplets import AminoAcidProteinTSR
 
 # Step 1: Retrieve PDB files
 data_dir = "Dataset/" # It is also the default directory if not declared
@@ -136,19 +136,19 @@ mirror_image: "True" # Optional argument. Set to True if you want the TSR to add
 retrieve_pdb_files(pdb_ids, data_dir)
 
 # Step 2: Generate key files for the proteins
-NucleotideTSR(data_dir, pdb_ids, chain=chain, output_option="keys", mirror_image=mirror_image) # Modify the output option as desired
+AminoAcidProteinTSR(data_dir, pdb_ids, chain=chain, output_option="keys", mirror_image=mirror_image) # Modify the output option as desired
 ```
 zxs3e 
 ### Example 2: Using CSV File for Input
 
 ```python
-from nucleotide_tsr_package.tsr.retrieve_pdb_files import retrieve_pdb_files
-from nucleotide_tsr_package.tsr.generate_keys_and_triplets import NucleotideTSR
+from aminoacid_tsr_package.tsr.retrieve_pdb_files import retrieve_pdb_files
+from aminoacid_tsr_package.tsr.generate_keys_and_triplets import AminoAcidProteinTSR
 
 # Use CSV input for batch processing
 data_dir = "Dataset/"
 csv_file = "sample_details.csv"
 mirror_image: "True" # Optional argument. Set to True if you want the TSR to address for the mirror image triangles.
 retrieve_pdb_files(csv_file, data_dir)
-NucleotideTSR(data_dir, csv_file, output_option="triplets", mirror_image=mirror_image)
+AminoAcidProteinTSR(data_dir, csv_file, output_option="triplets", mirror_image=mirror_image)
 ```
