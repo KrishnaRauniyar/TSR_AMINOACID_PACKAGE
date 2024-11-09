@@ -14,7 +14,7 @@ setup(
     description='A package for retrieving PDB files and generating key/triplet files for Amino Acid Protein and Mirror, Non-Mirror analysis.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/KrishnaRauniyar/TSR_NUCLEOTIDE_PACKAGE.git',
+    url='https://github.com/KrishnaRauniyar/TSR_AMINOACID_PACKAGE.git',
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
