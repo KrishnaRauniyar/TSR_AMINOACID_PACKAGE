@@ -233,7 +233,7 @@ class AminoAcidAnalyzer:
                         aminoAcidC30, aminoAcidC31, aminoAcidC32 = self.xCoordinate[l3_index2], self.yCoordinate[l3_index2], self.zCoordinate[l3_index2]
 
                         # Calculating the triplets key value
-                        tripletKeys = dLen*dtheta*(numOfLabels**2)*(self.aminoAcidCode[l1_index0]-1)+dLen*dtheta*(numOfLabels)*(self.aminoAcidCode[l2_index1]-1)+dLen*dtheta*(self.aminoAcidCode[l3_index2]-1)+dtheta*(binLength-1)+(binTheta-1)
+                        tripletKeys = self.dLen*self.dtheta*(self.numOfLabels**2)*(self.aminoAcidCode[l1_index0]-1)+self.dLen*self.dtheta*(self.numOfLabels)*(self.aminoAcidCode[l2_index1]-1)+self.dLen*self.dtheta*(self.aminoAcidCode[l3_index2]-1)+self.dtheta*(binLength-1)+(binTheta-1)
 
                         # Its just the negation of the keys
                         if mirror_image and thetaAngle1 > 90:
