@@ -19,14 +19,14 @@ To get started with the `aminoacid_tsr_package`, clone the repository from GitHu
 
 ```bash
 git clone https://github.com/KrishnaRauniyar/TSR_AMINOACID_PACKAGE.git
-cd TSR_AMINOACID_PACKAGE/aminoacid_tsr_package
+cd TSR_AMINOACID_PACKAGE
 ```
 
 ### Installing the Package
 1. It's recommended to create a virtual environment:
 
 ```bash
-python3 -m venv tsrenv
+python -m venv tsrenv
 source tsrenv/bin/activate  # Mac/Linux
 tsrenv\Scripts\activate  # Windows
 ```
@@ -48,6 +48,12 @@ pip install dist/aminoacid_tsr_package-0.1.0-py3-none-any.whl
 
 ```bash
 pip install -r requirements.txt
+```
+
+Once everthing is set up and running go to aminoacid_tsr_package directory and make an script to run the Usage command one by one or you can even run it within the terminal.
+
+```bash
+cd aminoacid_tsr_package
 ```
 
 ## Usage
