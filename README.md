@@ -10,6 +10,7 @@
   - [Using with CSV Input](#using-with-csv-input)
 - [Arguments](#arguments)
 - [Examples](#examples)
+- [Results](#results)
 
 ## Installation
 
@@ -65,13 +66,13 @@ from aminoacid_tsr_package.PDB_DL import PDB_DL
 
 # Retrieve PDB files for the specified PDB IDs
 pdb_ids = ["1GTA", "1GTB", "1lbe"]
-PDB_DL(pdb_ids, 'Dataset')
+PDB_DL(pdb_ids, 'Dataset/')
 ```
 Or you can use a CSV file to download the PDB files:
 ```python
 from aminoacid_tsr_package.PDB_DL import PDB_DL
 
-data_dir = "Dataset"
+data_dir = "Dataset/"
 csv_file = "sample_details.csv"
 PDB_DL(csv_file, data_dir)
 ```
@@ -83,10 +84,10 @@ Protein IDs are not case-sensitive, so you may use lowercase and uppercase lette
 To generate keys or triplet files for the proteins:
 
 ```python
-from aminoacid_tsr_package.generate_keys_and_triplets import AminoAcidProteinTSR
+from aminoacid_tsr_package.AminoAcid import AminoAcidProteinTSR
 
 # Define the directory where PDB files are stored
-data_dir = "Dataset"
+data_dir = "Dataset/"
 # Define the list of PDB files and corresponding chains
 input_files = ["1GTA", "1GTB", "1LBE"]
 chain = ["A", "A", "A"]  # specify chains for each PDB file
@@ -94,7 +95,7 @@ output_option = "keys"  # choose 'keys', 'triplets', or 'both'. If none, the fun
 # mirror_image is an optional argument. Set to True if you want the TSR to address for the mirror image triangles.
 
 # Process protein data to generate key files
-AminoAcidProteinTSR(data_dir, input_files, chain=chain, output_option=output_option mirror_image=True)
+AminoAcidProteinTSR(data_dir, input_files, chain=chain, output_option=output_option, mirror_image=True)
 ```
 Protein's chains are case-sensitive since there are chains with both lower and uppercase letters.
 
@@ -110,10 +111,10 @@ You can pass a CSV file as input to process multiple PDB files with chain inform
 To process the CSV file:
 
 ```python
-from aminoacid_tsr_package.generate_keys_and_triplets import AminoAcidProteinTSR
+from aminoacid_tsr_package.AminoAcid import AminoAcidProteinTSR
 
 # Define the directory and CSV file path
-data_dir = "Dataset"
+data_dir = "Dataset/"
 csv_file = "sample_details.csv"
 # mirror_image is an optional argument. Set to True if you want the TSR to address for the mirror image triangles.
 
@@ -133,10 +134,10 @@ AminoAcidProteinTSR(data_dir, csv_file, output_option="keys", mirror_image=True)
 
 ```python
 from aminoacid_tsr_package.PDB_DL import PDB_DL
-from aminoacid_tsr_package.generate_keys_and_triplets import AminoAcidProteinTSR
+from aminoacid_tsr_package.AminoAcid import AminoAcidProteinTSR
 
 # Step 1: Retrieve PDB files
-data_dir = "Dataset" # It is also the default directory if not declared
+data_dir = "Dataset/" # It is also the default directory if not declared
 pdb_ids = ["1GTA", "1gtb", "1lbe"] # Not case-sensitive
 chain = ["A", "A", "A"] # Case-sensitive
 PDB_DL(pdb_ids, data_dir)
@@ -148,11 +149,15 @@ AminoAcidProteinTSR(data_dir, pdb_ids, chain=chain, output_option="keys", mirror
 
 ```python
 from aminoacid_tsr_package.PDB_DL import PDB_DL
-from aminoacid_tsr_package.generate_keys_and_triplets import AminoAcidProteinTSR
+from aminoacid_tsr_package.AminoAcid import AminoAcidProteinTSR
 
 # Use CSV input for batch processing
-data_dir = "Dataset"
+data_dir = "Dataset/"
 csv_file = "sample_details.csv"
 PDB_DL(csv_file, data_dir)
 AminoAcidProteinTSR(data_dir, csv_file, output_option="triplets", mirror_image=True)
 ```
+
+## Results
+- `data_dir`: Directory where the PDB files are located or where they will be downloaded. (Dataset)
+- `aminoacid_results`: This is a directory inside data_dir (Dataset) where all the keys and triplets frequency files will be generated.
