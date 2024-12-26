@@ -1,7 +1,7 @@
 import math
 import pandas as pd
-from aminoacid_tsr_package.utils.theta_utils import thetaClass
-from aminoacid_tsr_package.utils.distance_utils import dist12Class
+from .utils.theta_utils import thetaClass
+from .utils.distance_utils import dist12Class
 
 class AminoAcidAnalyzer:
     def __init__(self, dtheta, dLen, numOfLabels):
