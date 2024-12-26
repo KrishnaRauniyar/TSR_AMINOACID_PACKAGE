@@ -35,7 +35,7 @@ tsrenv\Scripts\activate  # Windows
 2. Install the package using pip:
 
 ```bash
-pip install .
+pip install -e .
 ```
 
 3. Alternatively, you can install the package from the built wheel:
